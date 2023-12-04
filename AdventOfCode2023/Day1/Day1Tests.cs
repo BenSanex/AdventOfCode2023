@@ -98,12 +98,10 @@ public class Day1Tests
         {
             var matchString = match.ToString();
             if (int.TryParse(matchString, out var result))
-                results.Add(result);
+                yield return result;
             else if (WordsZeroThroughNine.Contains(matchString))
-                results.Add(Array.IndexOf(WordsZeroThroughNine, matchString));
+                yield return Array.IndexOf(WordsZeroThroughNine, matchString);
         }
-
-        return results;
     }
 
     private int AddAllTheLinesTogether(IEnumerable<string> lines)
